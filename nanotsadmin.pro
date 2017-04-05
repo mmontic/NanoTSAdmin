@@ -15,12 +15,25 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     meditproject.cpp \
-    meditemployee.cpp
+    meditemployee.cpp \
+    meditsettings.cpp \
+    medittimesheet.cpp \
+    meditcalendarhead.cpp \
+    meditcalendarline.cpp
 
 HEADERS  += mainwindow.h \
     meditproject.h \
-    meditemployee.h
+    meditemployee.h \
+    main.h \
+    meditsettings.h \
+    medittimesheet.h \
+    meditcalendarhead.h \
+    meditcalendarline.h
 
 FORMS    += mainwindow.ui \
     meditproject.ui \
-    meditemployee.ui
+    meditemployee.ui \
+    meditsettings.ui \
+    medittimesheet.ui \
+    meditcalendarhead.ui \
+    meditcalendarline.ui

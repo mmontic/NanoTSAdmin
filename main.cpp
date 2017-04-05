@@ -4,20 +4,31 @@
 #include <QtDebug>
 #include <QFileInfo>
 #include <QSqlQuery>
+#include <QSettings>
 
+#include "main.h"
+#include "meditsettings.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-//
-//  Open the database connection
-//
+    QApplication::setOrganizationName("MMSoft");
+    QApplication::setApplicationName("nanoTSAdmin");
+
+    QSettings settings;
+
+    if (!settings.contains("ID"))
+    {
+        MEditSettings editor;
+        if (!editor.exec())
+            return 2;
+    }
 
     QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
-    db.setHostName("localhost");
-    db.setDatabaseName("nanoTSAdmin");
-    db.setUserName("root");
-
+    db.setHostName(settings.value("HostName","").toString());
+    db.setDatabaseName(settings.value("DatabaseName","").toString());
+    db.setUserName(settings.value("UserName","").toString());
+    db.setPassword(settings.value("Password","").toString());
 
     if (db.open())
     {
@@ -28,7 +39,8 @@ int main(int argc, char *argv[])
     }
     else
     {
-        QMessageBox::warning(0,"Connexion","Unable to connecto to nanoTSAdmin database",QMessageBox::Ok);
+        QMessageBox::warning(0,"Connexion","Unable to connect to nanoTSAdmin database",QMessageBox::Ok);
+        settings.remove("ID");
         return 1;
     }
 }

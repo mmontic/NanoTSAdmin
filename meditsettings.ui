@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MEditSettings</class>
+ <widget class="QDialog" name="MEditSettings">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>468</width>
+    <height>202</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Database settings</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QFormLayout" name="formLayout">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Host Name :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>Database :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>User Name :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string>Password :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="hostName"/>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="databaseName"/>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="userName"/>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="password"/>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="testConnection">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string>Test connection</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="okButton">
+       <property name="text">
+        <string>Ok</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>true</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="cancelButton">
+       <property name="text">
+        <string>Cancel</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>testConnection</sender>
+   <signal>clicked()</signal>
+   <receiver>MEditSettings</receiver>
+   <slot>TestConnection()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>81</x>
+     <y>184</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>162</x>
+     <y>164</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>hostName</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>MEditSettings</receiver>
+   <slot>updateTestConnection()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>151</x>
+     <y>19</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>11</x>
+     <y>40</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>databaseName</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>MEditSettings</receiver>
+   <slot>updateTestConnection()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>211</x>
+     <y>54</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>6</x>
+     <y>72</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>userName</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>MEditSettings</receiver>
+   <slot>updateTestConnection()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>194</x>
+     <y>98</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>3</x>
+     <y>114</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>TestConnection()</slot>
+  <slot>updateTestConnection()</slot>
+ </slots>
+</ui>

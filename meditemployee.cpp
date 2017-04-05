@@ -34,6 +34,8 @@ void MEditEmployee::initFields()
     index = ui->employeeCalendar->findData(employeeCalendarID);
     if (index != -1)
         ui->employeeCalendar->setCurrentIndex(index);
+
+    ui->employeeName->setEnabled(false);
 }
 
 void MEditEmployee::on_okButton_clicked()
@@ -64,7 +66,7 @@ void MEditEmployee::on_okButton_clicked()
         employeeName = ui->employeeName->text();
         employeeStart = ui->employeeStart->date();
         employeeStop = ui->employeeStop->date();
-        //employeeCalendarID = ui->projectType->currentText();  search ID of the selected calendar
+        employeeCalendarID = ui->employeeCalendar->itemData(ui->employeeCalendar->currentIndex()).toString();
 
         result = true;
         accept();
